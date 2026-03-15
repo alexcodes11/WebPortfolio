@@ -175,7 +175,8 @@
 .border-deploy { border-top-color: var(--accent-primary); }
 .xp-card.border-deploy:hover {
   border-top-color: var(--accent-primary); /* Brightened purple */
-  box-shadow: 0 -10px 20px -5px rgba(255, 77, 90, 0.5);, 0 20px 40px -10px rgba(0, 0, 0, 0.7);
+  /* Corrected */
+  box-shadow: 0 10px 15px -5px rgba(255, 77, 90, 0.5), 0 20px 40px -10px rgba(0, 0, 0, 0.5);
 }
 
 /* Green Glow */
