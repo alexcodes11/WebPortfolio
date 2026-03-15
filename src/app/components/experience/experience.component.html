@@ -1,0 +1,96 @@
+<section class="experience-horizontal-section" id="experience">
+  <div class="section-header">
+    <div class="header-text">
+
+      <div class="h2-container">
+      <h2>Roadmap</h2>
+      <div class="h2-boarder"></div>
+      </div>
+      <p class="subtitle">Interactive timeline of my professional experience</p>
+    </div>
+    <div class="roadmap-controls">
+      <button class="nav-btn" (click)="scrollTrack(-400)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      <button class="nav-btn" (click)="scrollTrack(400)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="roadmap-viewport" #roadmapTrack>
+    <div class="roadmap-line"></div>
+
+    <div class="roadmap-step">
+      <div class="step-marker marker-purple">01</div>
+      <div class="xp-card border-deploy">
+        <div class="card-meta">
+          <span class="status-tag tag-complete">Completed</span>
+          <span class="xp-date">Nov 2022 - Mar 2024</span>
+        </div>
+
+        <h3 class="xp-title">Software Engineer</h3>
+        <h4 class="xp-company">Cognita Labs</h4>
+        <p class="xp-summary">Created a full-stack hospital platform and mobile apps, securely managing over 100,000+ patient health records.</p>
+
+        <div class="tech-metrics">
+          <div class="metric-row"><span class="label">Backend:</span><span class="val">Python, Django, PostgreSQL</span></div>
+          <div class="metric-row"><span class="label">Infra:</span><span class="val">AWS, Windows Servers, CI/CD</span></div>
+          <div class="metric-row"><span class="label">Version:</span><span class="val">Git, Postman, Testing</span></div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="roadmap-step">
+      <div class="step-marker marker-green">02</div>
+      <div class="xp-card border-success">
+        <div class="card-meta">
+          <span class="status-tag tag-complete">Completed</span>
+          <span class="xp-date">March 2024 - April 2025</span>
+        </div>
+        <h3 class="xp-title">B.S. Software Engineering</h3>
+        <h4 class="xp-company">WGU</h4>
+        <p class="xp-summary">Graduated with an Excellence Award in Web Development, focusing on scalable software architecture and quality assurance.</p>
+        <div class="tech-metrics">
+          <div class="metric-row"><span class="label">Core Tech:</span><span class="val">Java Spring Boot, Angular</span></div>
+          <div class="metric-row"><span class="label">Capstone:</span><span class="val">Dockerized Web App & CI/CD</span></div>
+          <div class="metric-row"><span class="label">Testing:</span><span class="val">Test-driven development</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="roadmap-step">
+      <div class="step-marker marker-amber">03</div>
+      <div class="xp-card border-sprint">
+
+        <div class="card-meta">
+          <span class="status-tag tag-future">Future Goal</span>
+          <span class="xp-date">Present</span>
+        </div>
+
+        <h3 class="xp-title">Systems Architecture</h3>
+        <h4 class="xp-company">Hardware-Aware Engineering</h4>
+        <p class="xp-summary">          I'm combining my software background with hands-on <strong>PC Servicing</strong>, Networking, and Cybersecurity. </p>
+        <div class="tech-metrics">
+          <div class="metric-row">
+            <span class="label">Hardware:</span>
+            <span class="val">PC Repair & Diagnostics</span>
+          </div>
+          <div class="metric-row">
+            <span class="label">Security:</span>
+            <span class="val">CCNA (Networking), Sec+</span>
+          </div>
+          <div class="metric-row">
+            <span class="label">Goal:</span>
+            <span class="val">DevSecOps Orchestration</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+  </div>
+</section>

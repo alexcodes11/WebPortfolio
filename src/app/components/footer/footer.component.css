@@ -1,0 +1,157 @@
+.system-footer {
+  background: linear-gradient(to bottom, var(--bg-color), #282828);
+  padding: 6rem 10% 4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* --- CTA SECTION --- */
+.footer-cta {
+  text-align: center;
+  margin-bottom: 6rem;
+}
+.h2-container{
+  position: relative;
+  width: 200px;
+  height: 50px;
+}
+
+.header-text h2 {
+  position: absolute;
+  font-size: 3.3rem;
+  color: var(--text-main);
+  font-weight: 800;
+  bottom: 0;
+  margin-bottom: auto;
+  z-index: 2;
+}
+
+.h2-boarder{
+  position: absolute;
+  width: 210px;
+  left: 35px;
+  bottom: 20px;
+  background-color: var(--accent-primary); /* Purple */
+  top: 20px;
+  height: 18px;
+  z-index: 1;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+/* --- BOTTOM STRIP --- */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.social-links {
+  display: flex;
+  gap: 30px;
+}
+
+.social-item {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.8rem;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+.social-item:hover {
+  color: var(--accent-primary); /* Links turn purple on hover */
+}
+
+.system-meta {
+  display: flex;
+  gap: 20px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.7rem;
+  color: #475569; /* Kept this dim so it stays in the background */
+}
+
+@media (max-width: 768px) {
+  .footer-cta h2 { font-size: 2rem; }
+  .contact-actions { flex-direction: column; }
+  .footer-bottom { flex-direction: column; gap: 2rem; text-align: center; }
+}
+
+
+
+/* Container Layout */
+.contact-gui {
+  position: relative;
+  left: 25%;
+  width: 700px;
+  height: 200px;
+  background: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 4rem;
+  font-family: 'Courier New', Courier, monospace;
+  background: rgba(0, 0, 0, 0.25); /* Sits nicely on the frosted glass */
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+}
+
+
+/* Data Rows */
+.gui-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.gui-row {
+  display: flex;
+  gap: 15px;
+  font-size: 1.2rem;
+}
+
+.label {
+  color: rgba(255, 255, 255, 0.4);
+  min-width: 80px;
+}
+
+.value {
+  color: var(--text-main);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.value:hover {
+  color: var(--accent-primary);
+}
+
+.status {
+  color: #00ff95; /* Cyber green */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Pulse Animation */
+.pulse {
+  width: 8px;
+  height: 8px;
+  background: #00ff95;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #00ff95;
+  animation: pulse-gfx 1.5s infinite;
+}
+
+@keyframes pulse-gfx {
+  0% { opacity: 1; }
+  50% { opacity: 0.3; }
+  100% { opacity: 1; }
+}

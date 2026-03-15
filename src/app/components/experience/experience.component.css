@@ -1,0 +1,283 @@
+/* =========================================
+   SECTION LAYOUT
+   ========================================= */
+.experience-horizontal-section {
+  padding: 6rem 10%;
+  background-color: var(--bg-color);
+  overflow: hidden;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3rem;
+}
+
+.h2-container{
+  position: relative;
+  width: 200px;
+  height: 50px;
+}
+
+.header-text h2 {
+  position: absolute;
+  font-size: 3.3rem;
+  color: var(--text-main);
+  font-weight: 800;
+  bottom: 0;
+  margin-bottom: auto;
+  z-index: 2;
+}
+
+.h2-boarder{
+  position: absolute;
+  width: 250px;
+  left: 35px;
+  bottom: 20px;
+  background-color: var(--accent-primary); /* Purple */
+  top: 20px;
+  height: 18px;
+  z-index: 1;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+/* =========================================
+   NAVIGATION CONTROLS
+   ========================================= */
+.roadmap-controls {
+  display: flex;
+  gap: 12px;
+}
+
+.nav-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-main);
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(167, 139, 250, 0.3);
+}
+
+.nav-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* =========================================
+   THE SCROLLABLE VIEWPORT
+   ========================================= */
+.roadmap-viewport {
+  display: flex;
+  gap: 40px;
+  overflow-x: auto;
+  padding: 2rem 5px 4rem 5px;
+  position: relative;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.roadmap-viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.roadmap-line {
+  position: absolute;
+  top: 42px;
+  left: 0;
+  width: 100%;
+  min-width: 1600px;
+  height: 2px;
+  background: linear-gradient(90deg,
+  var(--accent-primary),
+  var(--status-success),
+  var(--accent-amber),
+  var(--secondary-blue)
+  );
+  opacity: 0.15;
+  z-index: 1;
+}
+
+/* =========================================
+   THE NODES (Steps)
+   ========================================= */
+.roadmap-step {
+  flex: 0 0 400px;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
+
+.step-marker {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: var(--bg-color);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Fira Code', monospace;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  z-index: 3;
+  transition: all 0.3s ease;
+}
+
+.marker-purple { border-color: var(--accent-primary); color: var(--accent-primary); }
+.marker-green { border-color: var(--status-success); color: var(--status-success); }
+.marker-amber { border-color: var(--accent-amber); color: var(--accent-amber); }
+.marker-blue { border-color: var(--secondary-blue); color: var(--secondary-blue); }
+
+/* =========================================
+   THE CARDS & HOVER GLOW
+   ========================================= */
+.xp-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 4px solid rgba(255, 255, 255, 0.1); /* Muted border by default */
+  border-radius: 16px;
+  padding: 2rem;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+.xp-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* --- Specific Glow Effects --- */
+
+.border-deploy { border-top-color: var(--accent-primary); }
+.xp-card.border-deploy:hover {
+  border-top-color: var(--accent-primary); /* Brightened purple */
+  box-shadow: 0 -10px 20px -5px rgba(255, 77, 90, 0.5);, 0 20px 40px -10px rgba(0, 0, 0, 0.7);
+}
+
+/* Green Glow */
+.border-success { border-top-color: var(--status-success); }
+.xp-card.border-success:hover {
+  border-top-color: #34d399; /* Brightened green */
+  box-shadow: 0 -10px 20px -5px rgba(16, 185, 129, 0.4), 0 20px 40px -10px rgba(0, 0, 0, 0.7);
+}
+
+/* Amber Glow */
+.border-sprint { border-top-color: var(--accent-amber); }
+.xp-card.border-sprint:hover {
+  border-top-color: #fbbf24; /* Brightened amber */
+  box-shadow: 0 -10px 20px -5px rgba(251, 191, 36, 0.4), 0 20px 40px -10px rgba(0, 0, 0, 0.7);
+}
+
+/* Blue Glow */
+.border-active { border-top-color: var(--secondary-blue); }
+.xp-card.border-active:hover {
+  border-top-color: #38bdf8; /* Brightened blue */
+  box-shadow: 0 -10px 20px -5px rgba(56, 189, 248, 0.4), 0 20px 40px -10px rgba(0, 0, 0, 0.7);
+}
+
+/* Sync Marker Glow with Card Hover */
+.roadmap-step:hover .step-marker {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
+}
+
+/* =========================================
+   CARD CONTENT
+   ========================================= */
+.xp-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.3rem;
+}
+
+.xp-company {
+  font-size: 1rem;
+  color: var(--accent-primary);
+  font-weight: 500;
+  margin-bottom: 1.25rem;
+}
+
+.xp-summary {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.tech-metrics {
+  background: rgba(0, 0, 0, 0.25);
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.metric-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.label { color: var(--text-muted); }
+.val { color: var(--text-main); font-family: 'Fira Code', monospace; }
+
+/* =========================================
+   TAGS & META
+   ========================================= */
+.card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.xp-date { font-size: 0.8rem; color: var(--text-muted); }
+
+.status-tag {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 700;
+}
+
+.tag-complete { background: rgba(16, 185, 129, 0.1); color: var(--status-success); }
+.tag-future { background: rgba(251, 191, 36, 0.1); color: var(--accent-amber); }
+
+/* =========================================
+   MOBILE
+   ========================================= */
+@media (max-width: 768px) {
+  .roadmap-step { flex: 0 0 300px; }
+  .xp-card { min-height: 400px; padding: 1.5rem; }
+  .roadmap-controls { display: none; }
+}

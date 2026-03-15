@@ -1,0 +1,64 @@
+<section class="hero-container">
+
+
+
+  <div class="hero-content">
+    <div class="hero-content-title">Hello, I'm <span style="color: var(--accent-primary)">Alexander</span>.</div>
+    <p class="subtitle">Software Engineer | DevOps & IT | Data | Certified Project Manager</p>
+
+
+    <div class="terminal-tabs mt-large">
+      <button (click)="setTab('software')" [class.active]="activeTab === 'software'" class="tab-btn">
+        Software
+      </button>
+      <button (click)="setTab('devops')" [class.active]="activeTab === 'devops'" class="tab-btn">
+        IT Systems
+      </button>
+      <button (click)="setTab('certs')" [class.active]="activeTab === 'certs'" class="tab-btn">
+        Certifications
+      </button>
+    </div>
+
+    <div class="tab-content-window">
+
+      <div *ngIf="activeTab === 'software'" class="skills-container fade-in">
+        <span class="skill-tag">Angular</span>
+        <span class="skill-tag">TypeScript</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Java & SpringBoot</span>
+        <span class="skill-tag">SQL & Database Design</span>
+        <span class="skill-tag">REST APIs</span>
+        <span class="skill-tag">Postman & Git</span>
+      </div>
+
+      <div *ngIf="activeTab === 'devops'" class="skills-container fade-in">
+        <span class="skill-tag">AWS EC2</span>
+        <span class="skill-tag">Docker</span>
+        <span class="skill-tag">Windows Server</span>
+        <span class="skill-tag">SSL / TLS</span>
+        <span class="skill-tag">MacOS</span>
+      </div>
+
+      <div *ngIf="activeTab === 'certs'" class="skills-container fade-in">
+        <span class="skill-tag">AWS Cloud Practitioner</span>
+        <span class="skill-tag">CompTIA Project+</span>
+        <span class="skill-tag learning-tag">Studying: CompTIA A+</span>
+        <span class="skill-tag learning-tag">Studying: Network+</span>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="profile-wrapper">
+    <img ngSrc="assets/GradPhoto.jpg" alt="My Profile Photo" class="profile-img-tall" height="500" width="400">
+  </div>
+
+  <div class="standalone-action">
+    <button class="btn-ripple" (click)="scrollToTarget('experience')">
+      View my work <span class="arrow">↓</span>
+    </button>
+  </div>
+</section>
+
+
+

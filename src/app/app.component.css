@@ -1,0 +1,98 @@
+section {
+  padding: 100px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact-hud {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #282828; /* Your charcoal base */
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 16px 10%;
+}
+
+.hud-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* --- HUD STATUS --- */
+.hud-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--accent-primary); /* Changed to your Red */
+  border-radius: 50%;
+  /* Red glow using rgba(255, 77, 90, 0.5) */
+  box-shadow: 0 0 10px rgba(255, 77, 90, 0.5);
+  animation: hud-pulse 2s infinite;
+}
+
+@keyframes hud-pulse {
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.current-phase {
+  color: var(--text-muted);
+}
+
+/* --- HUD LINKS --- */
+.hud-links {
+  display: flex;
+  gap: 15px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.hud-links a {
+  color: var(--text-main);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.hud-links a:hover {
+  color: var(--accent-primary); /* Links turn Red on hover */
+  /* Red neon glow using RGB (255, 77, 90) */
+  text-shadow: 0 0 8px rgba(255, 77, 90, 0.4);
+}
+
+.hud-divider {
+  color: rgba(255, 255, 255, 0.1);
+}
+
+/* --- PROGRESS TRACKER --- */
+.hud-progress-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.hud-progress-bar {
+  height: 100%;
+  width: 0%;
+  /* Solid red or subtle gradient using your hover light-red #ff636e */
+  background: linear-gradient(90deg, var(--accent-primary), #ff636e);
+  /* Red glow trailing on the leading edge */
+  box-shadow: 0 0 8px rgba(255, 77, 90, 0.5);
+  transition: width 0.1s ease;
+}

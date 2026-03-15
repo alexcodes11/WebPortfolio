@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  /* The Base */
+  --bg-color: #1a1a1a;;
+  --card-bg: #282828;
+
+  /* The Primary Drive */
+  --accent-primary: #ff4d5a; /* Red */
+
+
+  /* Supporting */
+  --secondary-blue: #38bdf8; /* Vibrant Sky Blue */
+  --accent-amber: #fbbf24; /* Amber / Gold */
+  --status-success: #50C878;
+  /* Text */
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+}
+
+/* Your Original Reset */
+*, :before, :after {
+  box-sizing: border-box;
+  border: 0 solid #e5e7eb;
+}
+
+/* Base Body Styles */
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+}
