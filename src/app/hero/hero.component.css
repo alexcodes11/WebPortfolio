@@ -1,8 +1,26 @@
+/* --- GLOBAL RESET (Fixes Mobile Spacing Issues) --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  /* Make sure your CSS variables are defined somewhere, usually in :root */
+  /* :root {
+    --bg-color: #0a192f;
+    --text-main: #ccd6f6;
+    --text-muted: #8892b0;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --accent-primary: #ff4d5a;
+  }
+  */
+}
+
+/* --- MAIN LAYOUT --- */
 .hero-container {
   position: relative;
   min-height: 100vh;
   background-color: var(--bg-color); /* Deep Navy */
-
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -13,7 +31,6 @@
     linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
   background-size: 40px 40px;
 }
-
 
 /* Keep your text above everything */
 .hero-content {
@@ -37,7 +54,6 @@
   color: var(--text-muted);
   margin-bottom: 2rem;
   font-family: 'Fira Code', 'Courier New', monospace;
-
 }
 
 /* --- THE 4:5 PORTRAIT FRAME --- */
@@ -66,78 +82,6 @@
   transform: scale(1.02); /* Very slight zoom is more premium than a tilt */
   box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.3);
 }
-/* Mobile Layout */
-@media (max-width: 900px) {
-  /* --- YOUR LAYOUT --- */
-  .hero-container {
-    flex-direction: column-reverse; /* Photo on top for mobile */
-    padding: 60px 5% 40px 5%; /* Reduced side padding from 10% to 5% to give text more room */
-    gap: 30px;
-    align-items: flex-start; /* Better for terminal text than center-alignment */
-  }
-
-  .profile-wrapper {
-    margin: auto;
-  }
-
-  .profile-img-tall {
-    max-width: 280px;
-    max-height: 300px;
-  }
-
-  .hero-content {
-    width: 100%;
-    text-align: left; /* Forces the terminal to stay left-aligned even if the photo is centered */
-  }
-
-  /* --- TYPOGRAPHY SCALING --- */
-  .hero-content-title {
-    font-size: 2.2rem; /* Scaled down from 3.5rem */
-    line-height: 1.1;  /* Keeps the text tight if it drops to two lines */
-    margin: 0.5rem 0;
-  }
-
-  .subtitle {
-    font-size: 1rem; /* Scaled down from 1.25rem */
-    margin-bottom: 1.5rem;
-  }
-
-  /* --- TERMINAL SCALING --- */
-  .terminal-prompt {
-    font-size: 0.85rem; /* Shrinks the prompt path so it doesn't break into two lines */
-    flex-wrap: wrap;    /* Just in case it still needs to wrap on super tiny screens like the iPhone SE */
-  }
-
-  .visual-input {
-    font-size: 0.9rem; /* Matches the smaller prompt */
-  }
-
-  .command-palette-container {
-    max-width: 100%; /* Allows the search bar to span the whole screen */
-  }
-
-  /* --- MOBILE UX (BUTTONS & TAGS) --- */
-  .actions {
-    flex-direction: column; /* Stacks the buttons vertically on top of each other */
-    width: 100%;
-    gap: 12px;
-  }
-
-  .terminal-btn {
-    width: 100%; /* Makes the buttons full-width so they are easy to tap with a thumb */
-    text-align: center;
-  }
-
-  .skills-container {
-    gap: 8px; /* Slightly tighter spacing between tags on mobile */
-  }
-
-  .skill-tag {
-    font-size: 0.8rem;
-    padding: 6px 12px;
-  }
-}
-
 
 /* --- TERMINAL PROMPTS --- */
 .terminal-prompt {
@@ -147,6 +91,10 @@
   margin-bottom: 1rem;
 }
 
+.visual-input {
+  /* Added to match your mobile query target */
+  color: var(--accent-primary);
+}
 
 .mt-large {
   margin-top: 2.5rem;
@@ -176,12 +124,6 @@
 .skill-tag:hover {
   transform: translateY(-2px);
 }
-/* Distinguish the things you are learning with a dashed border */
-.learning-tag {
-  border-style: dashed;
-  color: var(--text-muted);
-}
-
 
 /* Currently Learning - Keeps your existing dashed style but tightens the text */
 .learning-tag {
@@ -190,15 +132,19 @@
   color: var(--text-muted);
 }
 
-
-
 /* --- BUTTON POSITIONING --- */
 .standalone-action {
   position: absolute;
-  bottom: 180px; /* Adjust this to move it higher/lower over the wave */
+  bottom: 15%; /* Adjust this to move it higher/lower over the wave */
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
+}
+
+.actions {
+  /* Added to match your HTML structure and mobile targets */
+  display: flex;
+  gap: 16px;
 }
 
 /* --- THE RIPPLE BUTTON BASE --- */
@@ -275,6 +221,7 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* The "track" the tabs sit on */
   margin-bottom: 1rem;
 }
+
 .tab-btn {
   position: relative; /* Context for the spotlight */
   overflow: hidden;   /* Keeps the glow inside the tab bounds */
@@ -325,6 +272,7 @@
   background: rgba(255, 77, 90, 0.05); /* Slight permanent tint for active tab */
   text-shadow: 0 0 10px rgba(255, 77, 90, 0.3);
 }
+
 .tab-content-window {
   min-height: 90px; /* Keeps the height from jumping around when tabs switch */
 }
@@ -337,4 +285,85 @@
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(5px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS (Max Width: 900px)
+   ========================================= */
+@media (max-width: 900px) {
+
+  /* --- YOUR LAYOUT --- */
+  .hero-container {
+    flex-direction: column-reverse; /* Photo on top for mobile */
+    padding: 60px 5% 40px 5%; /* Reduced side padding from 10% to 5% */
+    gap: 30px;
+    align-items: flex-start; /* Better for terminal text than center-alignment */
+  }
+  /* 2. Add this new rule to push the button down on small screens */
+  .standalone-action {
+    display: none;
+  }
+  .profile-wrapper {
+    margin: auto; /* Centers the image */
+    margin-bottom: 0; /* Resets the heavy bottom margin from desktop */
+  }
+
+  .profile-img-tall {
+    max-width: 280px;
+    max-height: 300px;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+    text-align: left; /* Forces the terminal to stay left-aligned */
+    margin-bottom: 0;
+  }
+
+  /* --- TYPOGRAPHY SCALING --- */
+  .hero-content-title {
+    font-size: 2.2rem; /* Scaled down from 5rem */
+    line-height: 1.1;  /* Keeps the text tight if it drops to two lines */
+    margin: 0.5rem 0;
+  }
+
+  .subtitle {
+    font-size: 1rem; /* Scaled down from 1.25rem */
+    margin-bottom: 1.5rem;
+  }
+
+  /* --- TERMINAL SCALING --- */
+  .terminal-prompt {
+    font-size: 0.85rem; /* Shrinks the prompt path */
+    flex-wrap: wrap;    /* Just in case it still needs to wrap on super tiny screens */
+  }
+
+  .visual-input {
+    font-size: 0.9rem; /* Matches the smaller prompt */
+  }
+
+  .command-palette-container {
+    max-width: 100%; /* Allows the search bar to span the whole screen */
+  }
+
+  /* --- MOBILE UX (BUTTONS & TAGS) --- */
+  .actions {
+    flex-direction: column; /* Stacks the buttons vertically on top of each other */
+    width: 100%;
+    gap: 12px;
+  }
+
+  .terminal-btn {
+    width: 100%; /* Makes the buttons full-width so they are easy to tap */
+    text-align: center;
+  }
+
+  .skills-container {
+    gap: 8px; /* Slightly tighter spacing between tags on mobile */
+  }
+
+  .skill-tag {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
 }

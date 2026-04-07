@@ -96,3 +96,24 @@ section {
   box-shadow: 0 0 8px rgba(255, 77, 90, 0.5);
   transition: width 0.1s ease;
 }
+
+/* --- MOBILE HUD RESPONSIVENESS --- */
+@media (max-width: 900px) {
+  .contact-hud {
+    /* Shrink the 10% desktop padding to 5% so the navbar has more usable width */
+    padding: 12px 5%;
+  }
+
+  .hud-content {
+    /* Stack the status indicator and the links on top of each other */
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px; /* Space between the top status and bottom links */
+  }
+
+  .hud-links {
+    /* If you have a lot of links, this allows them to drop to a new line cleanly */
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
