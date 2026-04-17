@@ -108,28 +108,40 @@ body {
 }
 
 .skill-tag {
-  /* Uses your new translucent card variable */
-  background: var(--card-bg);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.04)
+  );
   color: var(--text-main);
   padding: 6px 14px;
   border-radius: 6px;
   font-size: 0.95rem;
   font-weight: 500;
-  /* A subtle white line to give it structure against the navy */
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease; /* Slightly longer transition for a smooth glow */
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(6px);
+  transition: all 0.3s ease;
   cursor: default;
 }
 
 .skill-tag:hover {
   transform: translateY(-2px);
+  border-color: rgba(255, 77, 90, 0.28);
+  box-shadow:
+    0 8px 22px rgba(0, 0, 0, 0.28),
+    0 0 10px rgba(255, 77, 90, 0.12);
 }
 
-/* Currently Learning - Keeps your existing dashed style but tightens the text */
+/* Currently Learning */
 .learning-tag {
-  border-style: dashed;
-  border-color: rgba(255, 255, 255, 0.3);
-  color: var(--text-muted);
+  background: linear-gradient(
+    180deg,
+    rgba(250, 204, 21, 0.10),
+    rgba(250, 204, 21, 0.05)
+  );
+  border: 1px dashed rgba(250, 204, 21, 0.34);
+  color: rgba(255, 237, 160, 0.95);
 }
 
 /* --- BUTTON POSITIONING --- */
@@ -299,10 +311,11 @@ body {
     gap: 30px;
     align-items: flex-start; /* Better for terminal text than center-alignment */
   }
-  /* 2. Add this new rule to push the button down on small screens */
+
   .standalone-action {
     display: none;
   }
+
   .profile-wrapper {
     margin: auto; /* Centers the image */
     margin-bottom: 0; /* Resets the heavy bottom margin from desktop */
