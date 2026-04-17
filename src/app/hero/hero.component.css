@@ -20,16 +20,16 @@ body {
 .hero-container {
   position: relative;
   min-height: 100vh;
-  background-color: var(--bg-color); /* Deep Navy */
+  background: linear-gradient(
+    to bottom,
+    #1a1a1a 0%,
+    #222222 50%,
+    #1a1a1a 100%
+  );
   overflow: hidden;
   display: flex;
   align-items: center;
   padding: 0 10%;
-  /* A very faint, sharp schematic grid in the background */
-  background-image:
-    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-  background-size: 40px 40px;
 }
 
 /* Keep your text above everything */

@@ -1,20 +1,33 @@
 /* =========================================
-   SECTION LAYOUT
+   ROADMAP SECTION
    ========================================= */
-.experience-horizontal-section {
-  padding: 6rem 10%;
-  background-color: var(--bg-color);
+.experience-section {
+  position: relative;
+  background: linear-gradient(to bottom, var(--bg-color), #222222);
+  padding: 6rem 10% 4rem;
   overflow: hidden;
 }
 
+.experience-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.experience-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================
+   CONTAINER / HEADER
+   ========================================= */
 .section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
   margin-bottom: 3rem;
 }
 
-.h2-container{
+.h2-container {
   position: relative;
   width: 200px;
   height: 50px;
@@ -30,12 +43,12 @@
   z-index: 2;
 }
 
-.h2-boarder{
+.h2-boarder {
   position: absolute;
-  width: 250px;
+  width: 300px;
   left: 35px;
   bottom: 20px;
-  background-color: var(--accent-primary); /* Purple */
+  background-color: var(--accent-primary);
   top: 20px;
   height: 18px;
   z-index: 1;
@@ -44,197 +57,259 @@
 .subtitle {
   color: var(--text-muted);
   font-size: 1.1rem;
+  margin-top: 1rem;
 }
 
 /* =========================================
-   NAVIGATION CONTROLS
+   GRID
    ========================================= */
-.roadmap-controls {
-  display: flex;
-  gap: 12px;
-}
-
-.nav-btn {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: var(--text-main);
-  width: 50px;
-  height: 50px;
-  border-radius: 10px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-}
-
-.nav-btn:hover {
-  background: var(--accent-primary);
-  border-color: var(--accent-primary);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(167, 139, 250, 0.3);
-}
-
-.nav-btn svg {
-  width: 24px;
-  height: 24px;
+.experience-grid {
+  max-width: 1180px;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 2rem;
+  align-items: start;
 }
 
 /* =========================================
-   THE SCROLLABLE VIEWPORT
+   LEFT PANEL
    ========================================= */
-.roadmap-viewport {
-  display: flex;
-  gap: 40px;
-  overflow-x: auto;
-  padding: 2rem 5px 4rem 5px;
+.learning-panel {
   position: relative;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-}
+  overflow: hidden;
 
-.roadmap-viewport::-webkit-scrollbar {
-  display: none;
-}
-
-.roadmap-line {
-  position: absolute;
-  top: 42px;
-  left: 0;
-  width: 100%;
-  min-width: 1600px;
-  height: 2px;
-  background: linear-gradient(90deg,
-  var(--accent-primary),
-  var(--status-success),
-  var(--accent-amber),
-  var(--secondary-blue)
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.06),
+    rgba(255,255,255,0.025)
   );
-  opacity: 0.15;
-  z-index: 1;
+
+  border-left: 4px solid rgba(250, 204, 21, 0.85);
+  border-radius: 0 14px 14px 0;
+
+  border-top: 1px solid rgba(255,255,255,0.10);
+  border-right: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
+
+  backdrop-filter: blur(6px);
+
+  padding: 1.5rem;
+}
+.learning-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.06),
+    transparent 45%
+  );
+  opacity: 0.35;
+  pointer-events: none;
+}
+.learning-panel:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.075),
+    rgba(255,255,255,0.035)
+  );
 }
 
-/* =========================================
-   THE NODES (Steps)
-   ========================================= */
-.roadmap-step {
-  flex: 0 0 400px;
-  scroll-snap-align: start;
+.mini-label {
+  display: inline-block;
+  margin: 0 0 0.9rem 0;
+
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+
+  color: #facc15; /* clean yellow */
+  background: rgba(250, 204, 21, 0.12);
+
+  padding: 4px 10px;
+  border-radius: 999px;
+
+  border: 1px solid rgba(250, 204, 21, 0.18);
+}
+
+.learning-panel h3 {
+  margin: 0 0 0.65rem 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.learning-panel p {
+  margin: 0 0 1rem 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.learning-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  z-index: 2;
+  gap: 0.7rem;
 }
 
-.step-marker {
-  width: 45px;
-  height: 45px;
+.learning-list li {
+  position: relative;
+  padding-left: 1rem;
+  color: var(--text-main);
+  font-size: 0.9rem;
+}
+
+.learning-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.42rem;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background: var(--bg-color);
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Fira Code', monospace;
-  font-weight: bold;
-  font-size: 1rem;
-  margin-bottom: 2rem;
-  z-index: 3;
-  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.35);
 }
-
-.marker-purple { border-color: var(--accent-primary); color: var(--accent-primary); }
-.marker-green { border-color: var(--status-success); color: var(--status-success); }
-.marker-amber { border-color: var(--accent-amber); color: var(--accent-amber); }
-.marker-blue { border-color: var(--secondary-blue); color: var(--secondary-blue); }
 
 /* =========================================
-   THE CARDS & HOVER GLOW
+   RIGHT SIDE LIST
+   ========================================= */
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* =========================================
+   ROADMAP CARDS
    ========================================= */
 .xp-card {
-  background: var(--card-bg);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-top: 4px solid rgba(255, 255, 255, 0.1); /* Muted border by default */
-  border-radius: 16px;
-  padding: 2rem;
-  min-height: 420px;
+  position: relative;
+  overflow: hidden;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.06),
+    rgba(255,255,255,0.025)
+  );
+
+  border-left: 4px solid rgba(255,255,255,0.1);
+  border-radius: 0 14px 14px 0;
+
+  border-top: 1px solid rgba(255,255,255,0.10);
+  border-right: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
+
+  backdrop-filter: blur(6px);
+
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+
+  transition: background 0.2s ease, padding-left 0.2s ease;
 }
 
-.xp-card:hover {
-  transform: translateY(-10px);
-  background: rgba(255, 255, 255, 0.05);
+.xp-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.08),
+    transparent 40%
+  );
+  opacity: 0.4;
+  pointer-events: none;
 }
 
-/* --- Specific Glow Effects --- */
 
-.border-deploy { border-top-color: var(--accent-primary); }
-.xp-card.border-deploy:hover {
-  border-top-color: var(--accent-primary); /* Brightened purple */
-  /* Corrected */
-  box-shadow: 0 10px 15px -5px rgba(255, 77, 90, 0.5), 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+/* accent variants */
+.border-deploy {
+  border-left-color: var(--accent-primary);
 }
 
-/* Green Glow */
-.border-success { border-top-color: var(--status-success); }
-.xp-card.border-success:hover {
-  border-top-color: #34d399; /* Brightened green */
-  box-shadow: 0 -10px 20px -5px rgba(16, 185, 129, 0.4), 0 20px 40px -10px rgba(0, 0, 0, 0.7);
+.border-success {
+  border-left-color: var(--status-success);
 }
 
-/* Amber Glow */
-.border-sprint { border-top-color: var(--accent-amber); }
-.xp-card.border-sprint:hover {
-  border-top-color: #fbbf24; /* Brightened amber */
-  box-shadow: 0 -10px 20px -5px rgba(251, 191, 36, 0.4), 0 20px 40px -10px rgba(0, 0, 0, 0.7);
-}
-
-/* Blue Glow */
-.border-active { border-top-color: var(--secondary-blue); }
-.xp-card.border-active:hover {
-  border-top-color: #38bdf8; /* Brightened blue */
-  box-shadow: 0 -10px 20px -5px rgba(56, 189, 248, 0.4), 0 20px 40px -10px rgba(0, 0, 0, 0.7);
-}
-
-/* Sync Marker Glow with Card Hover */
-.roadmap-step:hover .step-marker {
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-  transform: scale(1.1);
+.border-sprint {
+  border-left-color: var(--accent-amber);
 }
 
 /* =========================================
    CARD CONTENT
    ========================================= */
+.card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.9rem;
+}
+
+.status-tag {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.tag-complete {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--status-success);
+}
+
+.tag-future {
+  background: rgba(251, 191, 36, 0.1);
+  color: var(--accent-amber);
+}
+
+.xp-date {
+  font-size: 0.8rem;
+  color: var(--text-main);
+}
+
 .xp-title {
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--text-main);
-  margin-bottom: 0.3rem;
+  margin: 0 0 0.25rem 0;
 }
 
 .xp-company {
-  font-size: 1rem;
-  color: var(--accent-primary);
-  font-weight: 500;
-  margin-bottom: 1.25rem;
+  font-size: 0.98rem;
+  color: var(--text-main);
+  font-weight: bold;
+  margin: 0 0 0.9rem 0;
 }
 
 .xp-summary {
-  font-size: 0.95rem;
+  font-size: 0.94rem;
   color: var(--text-muted);
   line-height: 1.6;
-  margin-bottom: 1.5rem;
+  margin: 0 0 1rem 0;
   flex-grow: 1;
 }
 
+/* =========================================
+   METRICS BOX
+   ========================================= */
 .tech-metrics {
-  background: rgba(0, 0, 0, 0.25);
-  padding: 1rem;
+  background: rgba(0, 0, 0, 0.18);
+  padding: 0.95rem;
   border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.04);
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -245,40 +320,58 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.8rem;
+  gap: 1rem;
+  font-size: 0.82rem;
 }
 
-.label { color: var(--text-muted); }
-.val { color: var(--text-main); font-family: 'Fira Code', monospace; }
-
-/* =========================================
-   TAGS & META
-   ========================================= */
-.card-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-.xp-date { font-size: 0.8rem; color: var(--text-muted); }
-
-.status-tag {
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  padding: 4px 10px;
-  border-radius: 20px;
+.label {
+  color: rgba(255,255,255,0.42);
   font-weight: 700;
+  letter-spacing: 0.08em;
 }
 
-.tag-complete { background: rgba(16, 185, 129, 0.1); color: var(--status-success); }
-.tag-future { background: rgba(251, 191, 36, 0.1); color: var(--accent-amber); }
+.val {
+  color: var(--text-main);
+  font-family: 'Fira Code', monospace;
+  text-align: right;
+}
 
 /* =========================================
    MOBILE
    ========================================= */
+@media (max-width: 900px) {
+  .experience-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 768px) {
-  .roadmap-step { flex: 0 0 300px; }
-  .xp-card { min-height: 400px; padding: 1.5rem; }
-  .roadmap-controls { display: none; }
+  .experience-section {
+    padding: 4rem 6% 3rem;
+  }
+
+  .learning-panel,
+  .xp-card {
+    padding: 1.2rem;
+  }
+
+  .xp-card:hover {
+    padding-left: 1.2rem;
+  }
+
+  .metric-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .val {
+    text-align: left;
+  }
+
+  .card-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
 }

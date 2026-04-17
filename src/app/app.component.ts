@@ -25,9 +25,9 @@ export class AppComponent {
     // 2. Update Active Phase Text
     const phaseText = document.getElementById('active-phase');
     if (phaseText) {
-      if (winScroll < 500) phaseText.innerText = 'CORE_SYSTEM.EXE';
-      else if (winScroll < 1500) phaseText.innerText = 'ROADMAP_ACTIVE';
-      else phaseText.innerText = 'CONNECTION_READY';
+      if (winScroll < 500) phaseText.innerText = 'Overview';
+      else if (winScroll < 1500) phaseText.innerText = 'Experience';
+      else phaseText.innerText = 'Contact';
     }
   }
 
